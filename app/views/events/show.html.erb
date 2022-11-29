@@ -1,0 +1,21 @@
+<h1><%= @event.title %></h1>
+
+<%= "Event Description: "%>
+
+<%= @event.description %>
+
+<p><%= "Event Location: "%>
+
+<%= @event.location %></p>
+
+<p><%= "Date: " %>
+
+<%= @event.date %></p>
+
+<%= "Host: "%>
+
+<%= @event.creator.name %>
+
+<p><%= link_to @event.creator.surname, users_show_path(id: @event.creator.id)%></p>
+
+<p><%= link_to "Back", events_path%></p>

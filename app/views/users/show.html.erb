@@ -1,0 +1,8 @@
+<h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p>
+<%= @user.name %>
+<div>
+<% Event.where(creator_id: @user.id).each do |event| %>
+  <%= event.title %>
+<% end %>
+</div>
