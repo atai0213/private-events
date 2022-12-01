@@ -19,3 +19,12 @@
 <p><%= link_to @event.creator.surname, users_show_path(id: @event.creator.id)%></p>
 
 <p><%= link_to "Back", events_path%></p>
+
+<p><%= "Attendees: "%></p>
+
+<% @event.attendees.each do |x| %>
+  <p><%= x.name + ' ' + x.surname%></p>
+<% end %>
+
+
+<p><%= link_to "Attend this event", assignments_new_path(attended_event_id: @event.id)%></p>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'assignments/new'
+  get 'assignments/create'
   get 'users/show'
   devise_for :users
   get 'events/index'
@@ -19,6 +21,7 @@ Rails.application.routes.draw do
     get "/users/sign_in", to: "sessions#new"
     get "users/sign_out", to: "devise/sessions#destroy"
     resources :events
+    resources :assignments
     get 'users/:id' => 'users#show'
   end
 end

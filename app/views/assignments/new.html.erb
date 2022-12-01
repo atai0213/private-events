@@ -1,0 +1,18 @@
+<h1>Assignments#new</h1>
+
+<div data-turbo="false">
+  <%= form_with model: Assignment do |form| %>
+
+    <%= form.hidden_field :attendee_id, value: current_user.id %>
+  
+    <div>
+      <%= form.radio_button :attended_event_id, params[:attended_event_id] %>
+      <%= form.label :attended_event_id, "Attend this event" %>
+    </div>
+    
+  
+    <div>
+      <%= form.submit "Submit" %>
+    </div>
+  <% end %>
+</div>

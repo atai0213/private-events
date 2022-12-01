@@ -2,7 +2,7 @@
 <p>Find me in app/views/users/show.html.erb</p>
 <%= @user.name %>
 <div>
-<% Event.where(creator_id: @user.id).each do |event| %>
-  <%= event.title %>
+<% Assignment.where(attendee_id: @user.id).each do |x| %>
+  <%= Event.where(id: x.attended_event_id).first.title %>
 <% end %>
 </div>
