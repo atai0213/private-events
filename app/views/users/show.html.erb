@@ -1,8 +1,20 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
 <%= @user.name %>
-<div>
-<% Assignment.where(attendee_id: @user.id).each do |x| %>
-  <%= Event.where(id: x.attended_event_id).first.title %>
-<% end %>
-</div>
+<p>
+  <div>Future Events:</div>
+  <div>
+  <% Assignment.where(attendee_id: @user.id).each do |x| %>
+    <%= Event.future.where(id: x.attended_event_id).first.title if Event.future.where(id: x.attended_event_id).first%>
+  <% end %>
+  </div>
+</p>
+
+<p>
+  <div>Past Events:</div>
+  <div>
+  <% Assignment.where(attendee_id: @user.id).each do |x| %>
+    <%= Event.past.where(id: x.attended_event_id).first.title if Event.past.where(id: x.attended_event_id).first%>
+  <% end %>
+  </div>
+</p>
